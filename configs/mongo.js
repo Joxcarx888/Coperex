@@ -1,5 +1,3 @@
-'use strict';
-
 import mongoose from "mongoose";
 import Usuario from "../src/users/user.model.js";
 import { hash } from "argon2";
@@ -19,12 +17,12 @@ export const dbConnection = async () => {
             console.log('Connected to MongoDB');
 
             try {
-                const adminExists = await Usuario.findOne({ role: "ADMIN" });
+                const adminExists = await Usuario.findOne({ username: "admin" });
+                
                 if (!adminExists) {
                     const adminPassword = await hash("12345678");
                     await Usuario.create({
                         name: "Admin",
-                        surname: "User",
                         username: "admin",
                         email: "admin@gmail.com",
                         password: adminPassword,
@@ -33,9 +31,6 @@ export const dbConnection = async () => {
                 } else {
                     console.log("Usuario administrador ya existe");
                 }
-
-
-
 
             } catch (error) {
                 console.error("Error al verificar/crear admin ", error);
