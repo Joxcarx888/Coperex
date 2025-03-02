@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
 import authRoutes from '../src/auth/auth.routes.js';
+import enterpriseRoutes from '../src/enterprises/enterprise.routes.js';
 
 
 const middlewares = (app) => {
@@ -20,6 +21,7 @@ const middlewares = (app) => {
 
 const routes = (app) =>{
     app.use('/corporex/v1/auth', authRoutes);
+    app.use('/corporex/v1/enterprise', enterpriseRoutes);
 }
 
 const conectarDB = async () => {
