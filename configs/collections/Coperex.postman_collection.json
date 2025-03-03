@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "4e9398c4-d0b7-49f3-b7c0-6c957372603e",
+		"name": "Coperex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42619138"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Empresas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWQwOGI3ZjIzODBhMDVmYjc2NGYiLCJpYXQiOjE3NDEwMDkxMDQsImV4cCI6MTc0MTAxMjcwNH0.cIYi47raLqy4uuRb1gUUxTzdNp83wPVb-nhX13YCf6M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/enterprise",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"enterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empresas DESC",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWQwOGI3ZjIzODBhMDVmYjc2NGYiLCJpYXQiOjE3NDEwMDkxMDQsImV4cCI6MTc0MTAxMjcwNH0.cIYi47raLqy4uuRb1gUUxTzdNp83wPVb-nhX13YCf6M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/enterprise",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"enterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empresas ASC",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWQwOGI3ZjIzODBhMDVmYjc2NGYiLCJpYXQiOjE3NDEwMDkxMDQsImV4cCI6MTc0MTAxMjcwNH0.cIYi47raLqy4uuRb1gUUxTzdNp83wPVb-nhX13YCf6M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/enterprise",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"enterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empresas Formulario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Los Pollos Hermanos\",\r\n  \"nivelImpacto\": \"Medio\",\r\n  \"aniosTrayectoria\": 14,\r\n  \"categoriaEmpresarial\": \"Comida\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/enterprise",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"enterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Por Años",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWQwOGI3ZjIzODBhMDVmYjc2NGYiLCJpYXQiOjE3NDEwMDkxMDQsImV4cCI6MTc0MTAxMjcwNH0.cIYi47raLqy4uuRb1gUUxTzdNp83wPVb-nhX13YCf6M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/enterprise?sortBy=aniosTrayectoria&order=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"enterprise"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "aniosTrayectoria"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Por Categoria",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWQwOGI3ZjIzODBhMDVmYjc2NGYiLCJpYXQiOjE3NDEwMDkxMDQsImV4cCI6MTc0MTAxMjcwNH0.cIYi47raLqy4uuRb1gUUxTzdNp83wPVb-nhX13YCf6M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/enterprise?sortBy=aniosTrayectoria&order=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"enterprise"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "aniosTrayectoria"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reporte",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWQwOGI3ZjIzODBhMDVmYjc2NGYiLCJpYXQiOjE3NDEwMDkxMDQsImV4cCI6MTc0MTAxMjcwNH0.cIYi47raLqy4uuRb1gUUxTzdNp83wPVb-nhX13YCf6M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/corporex/v1/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"corporex",
+						"v1",
+						"report"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
