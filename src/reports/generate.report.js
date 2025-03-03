@@ -1,9 +1,11 @@
 import ExcelJS from "exceljs";
 import Enterprise from "../enterprises/enterprise.model.js";
+import fs from "fs";
+import path from "path";
+import { exec } from "child_process";
 
 export const generateEnterpriseReport = async (req, res) => {
   try {
- 
     const enterprises = await Enterprise.find();
 
     const workbook = new ExcelJS.Workbook();
@@ -21,14 +23,31 @@ export const generateEnterpriseReport = async (req, res) => {
       worksheet.addRow(enterprise);
     });
 
-    res.setHeader(
-      "Content-Type",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    );
-    res.setHeader("Content-Disposition", "attachment; filename=empresas.xlsx");
+    const filePath = path.join("reports", "empresas.xlsx");
 
-    await workbook.xlsx.write(res);
-    res.end();
+    if (!fs.existsSync("reports")) {
+      fs.mkdirSync("reports");
+    }
+
+    await workbook.xlsx.writeFile(filePath);
+
+
+    exec(`start "" "${filePath}"`, (err) => {
+      if (err) {
+        console.error("Error al abrir el archivo:", err);
+      }
+    });
+
+    res.download(filePath, "empresas.xlsx", (err) => {
+      if (err) {
+        console.error("Error al enviar el archivo:", err);
+        res.status(500).json({
+          success: false,
+          message: "Error al descargar el archivo",
+          error: err,
+        });
+      }
+    });
   } catch (error) {
     console.error("Error generando el reporte:", error);
     res.status(500).json({
